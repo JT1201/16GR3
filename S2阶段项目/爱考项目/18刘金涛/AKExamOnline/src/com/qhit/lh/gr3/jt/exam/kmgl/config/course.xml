@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="course" namespace="/course" extends="default">
+		<ation name="course_*" class="com.qhit.lh.gr3.jt.exam.kmgl.action.CourseAction"
+			method="{1}">
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="listCourseJson" type="josn">
+				<!-- 取消浏览器缓存 -->
+				<param name="noCache">true</param>
+				<!-- 设置服务器响应类型 -->
+				<param name="contentType">application/json</param>
+				<!-- 至序列化Action内的List属性 -->
+				<param name="root">listCourse</param>
+			</result>
+		</ation>
+	</package>
+</struts>
